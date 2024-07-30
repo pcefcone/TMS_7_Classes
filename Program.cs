@@ -13,8 +13,11 @@ namespace Products
             products.Add(new Basic(amount: 14));
             products.Add(new Furniture(price: 99.99));
             Equipment equipment = new Equipment(products);
-            double result = Math.Round(equipment.GetProductsPrices(), 2);
-            Console.WriteLine($"Cost of all products in your cart {result} PLN");
+            equipment.GetProductIds();
+            equipment.GetProductPrices();
+            equipment.GetProductAmount();
+            double result = Math.Round(equipment.GetCartTotalPrice(), 2);
+            Console.WriteLine($"Cost of all products in your cart {result} EUR");
         }
     }
 }

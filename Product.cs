@@ -132,6 +132,11 @@ namespace TMS_7_Classes
 
     internal class Equipment : Product
     {
+        double pricesSummary = 0.0;
+        double cartTotal = 0.0;
+        int amountSummary = 0;
+        int ids = 0;
+
         List<Product> _products;
         public List<Product> Products
         {
@@ -148,15 +153,51 @@ namespace TMS_7_Classes
         {
             Products = products;
         }
-        public double GetProductsPrices()
+        public double GetCartTotalPrice()
         {
-            double price = 0.0;
             foreach (Product product in Products)
             {
-                price += product.Price * product.Amount;
+                cartTotal += product.Price * product.Amount;
             }
-            return price;
+            return cartTotal;
 
         }
+        public double GetProductPrices()
+        {
+            int count = 0;
+            foreach (Product product in Products)
+            {
+                count++;
+                pricesSummary += product.Price;
+                Console.Write($"Product{count} price = {Math.Round(product.Price, 2)} EUR, ");
+            }
+            Console.WriteLine();
+            return pricesSummary;
+        }
+        public double GetProductAmount()
+        {
+            foreach (Product product in Products)
+            {
+                int count = 0;
+                count++;
+                amountSummary += product.Amount;
+                Console.Write($"Product{count} amount = {product.Amount}, ");
+            }
+            Console.WriteLine();
+            return amountSummary;
+        }
+        public int GetProductIds()
+        {
+            int count = 0;
+            foreach (Product product in Products)
+            {
+                count++;
+                ids = product.Id;
+                Console.Write($"Product{count} id = {product.Id}, ");
+            }
+            Console.WriteLine();
+            return ids;
+        }
+
     }
 }
