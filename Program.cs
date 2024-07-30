@@ -8,7 +8,13 @@ namespace Products
     {
         private static void Main(string[] args)
         {
-            List<Equipment> equipment = new List<Equipment>();
+            List<Product> products = new List<Product>();
+            products.Add(new Electronic(price: 77.20, amount: 9));
+            products.Add(new Basic(amount: 14));
+            products.Add(new Furniture(price: 99.99));
+            Equipment equipment = new Equipment(products);
+            double result = Math.Round(equipment.GetProductsPrices(), 2);
+            Console.WriteLine($"Cost of all products in your cart {result} PLN");
         }
     }
 }

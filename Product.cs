@@ -132,28 +132,28 @@ namespace TMS_7_Classes
 
     internal class Equipment : Product
     {
-        List<Equipment> _equipment;
-        public List<Equipment> Equipments
+        List<Product> _products;
+        public List<Product> Products
         {
             get
             {
-                return _equipment;
+                return _products;
             }
             set
             {
-                _equipment = value;
+                _products = value;
             }
         }
-        public Equipment(List<Equipment> equipment)
+        public Equipment(List<Product> products)
         {
-            Equipments = equipment;
+            Products = products;
         }
-        public double GetPrices()
+        public double GetProductsPrices()
         {
-            double price = 0;
-            foreach (Equipment equipment in _equipment)
+            double price = 0.0;
+            foreach (Product product in Products)
             {
-                price += equipment.Price * equipment.Amount;
+                price += product.Price * product.Amount;
             }
             return price;
 
